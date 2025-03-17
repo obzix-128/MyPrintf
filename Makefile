@@ -22,16 +22,17 @@ TARGET = do
 CC = g++
 ASM = nasm
 ASMFLAGS = -f elf64 -l $(LST_DIR)/MyPrintf.lst
-CFLAGS = -c -I$(INC_DIR)
+CFLAGS = -c -I$(INC_DIR)  # Флаг -fPIC не нужен для исполняемых файлов
+LDFLAGS = -pie  # Включаем PIE при компоновке
 
 # Цель по умолчанию
 all: $(TARGET)
 
 # Компоновка объектных файлов
 $(TARGET): $(OBJ_CPP) $(OBJ_ASM)
-	@@$(CC) $(OBJ_CPP) $(OBJ_ASM) -o $(TARGET)
+	@@$(CC) $(OBJ_CPP) $(OBJ_ASM) -o $(TARGET) $(LDFLAGS)
 
-# Компиляция C кода
+# Компиляция C++ кода
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@@$(CC) $(CFLAGS) $< -o $@
 

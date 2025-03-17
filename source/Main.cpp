@@ -3,6 +3,6 @@
 extern "C" void myPrintf(const char* str); // Объявляем функцию my_printf
 
 int main() {
-    myPrintf("Hello, World!\n"); // Вызываем my_printf
+    myPrintf("Hello, World!0123456789\n"); // Вызываем my_printf
     return 0;
 }
