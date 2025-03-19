@@ -22,7 +22,7 @@ TARGET = do
 CC = g++
 ASM = nasm
 ASMFLAGS = -f elf64 -l $(LST_DIR)/MyPrintf.lst
-CFLAGS = -c -I$(INC_DIR)  # Флаг -fPIC не нужен для исполняемых файлов
+CFLAGS = -c -I$(INC_DIR)
 LDFLAGS = -pie  # Включаем PIE при компоновке
 
 # Цель по умолчанию
